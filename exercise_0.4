@@ -1,0 +1,40 @@
+'''
+participant browser
+participant server
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+payload = {'note':'ss'}
+activate server
+server->> update json,return response
+deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+activate server
+server->>browser: return html document
+deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server->>browser: return css file
+deactivate server
+
+browser: applying css rules
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+activate server
+server->>browser: return js file
+deactivate server
+
+browser: starts executing js file, while executing it need json file
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+activate server
+server: return updated json
+deactivate server
+
+# in flow: requested for image as well again
+browser->>server: GET data:image/png;base64,iVBORw0KG........
+activate server
+server->>browser:return image/png data
+deactivate server
+'''
