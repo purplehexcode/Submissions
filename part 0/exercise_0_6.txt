@@ -1,0 +1,12 @@
+'''
+# when new note is created in note spa
+
+participant browser
+participant server
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+payload = {content: "hello", date: "2023-08-26T07:26:18.094Z"}
+activate server
+return response: {"message":"note created"}
+deactivate server
+'''

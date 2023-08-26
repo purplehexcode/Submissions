@@ -1,4 +1,6 @@
 '''
+# when new note is created in traditional webpage
+
 participant browser
 participant server
 
@@ -29,7 +31,7 @@ browser: starts executing js file, while executing it need json file
 
 browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
 activate server
-server: return updated json
+server: request redirected 
 deactivate server
 
 # in flow: requested for image as well again

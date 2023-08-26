@@ -1,0 +1,30 @@
+'''
+# when note spa loaded
+
+participant browser
+participant server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+activate server
+server: returns html document
+deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server: return css file
+deactivate server
+
+# will apply css rules to elements
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+activate server
+server: return js file
+deactivate server
+
+# will start executing js
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+activate server
+server: return json file
+deactivate server
+'''
